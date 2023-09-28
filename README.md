@@ -1,1 +1,179 @@
-# CodeTopher83.github.io
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal>&lt;!DOCTYPE html&gt;</p>
+
+<p class=MsoNormal>&lt;html lang=&quot;en&quot;&gt;</p>
+
+<p class=MsoNormal>&lt;head&gt;</p>
+
+<p class=MsoNormal>    &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+
+<p class=MsoNormal>    &lt;meta name=&quot;viewport&quot;
+content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+
+<p class=MsoNormal>    &lt;title&gt;Coding Gone Crazy&lt;/title&gt;</p>
+
+<p class=MsoNormal>    &lt;style&gt;</p>
+
+<p class=MsoNormal>        body {</p>
+
+<p class=MsoNormal>            font-family: Arial, sans-serif;</p>
+
+<p class=MsoNormal>            background-color: #f0f0f0;</p>
+
+<p class=MsoNormal>            margin: 0;</p>
+
+<p class=MsoNormal>            padding: 0;</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        header {</p>
+
+<p class=MsoNormal>            background-color: #333;</p>
+
+<p class=MsoNormal>            color: #fff;</p>
+
+<p class=MsoNormal>            text-align: center;</p>
+
+<p class=MsoNormal>            padding: 20px;</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        h1 {</p>
+
+<p class=MsoNormal>            font-size: 36px;</p>
+
+<p class=MsoNormal>            margin: 0;</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        .project {</p>
+
+<p class=MsoNormal>            background-color: #fff;</p>
+
+<p class=MsoNormal>            border: 1px solid #ccc;</p>
+
+<p class=MsoNormal>            padding: 20px;</p>
+
+<p class=MsoNormal>            margin: 10px;</p>
+
+<p class=MsoNormal>            border-radius: 5px;</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        @media (max-width: 768px) {</p>
+
+<p class=MsoNormal>            .project {</p>
+
+<p class=MsoNormal>                padding: 10px;</p>
+
+<p class=MsoNormal>                font-size: 14px;</p>
+
+<p class=MsoNormal>            }</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>    &lt;/style&gt;</p>
+
+<p class=MsoNormal>&lt;/head&gt;</p>
+
+<p class=MsoNormal>&lt;body&gt;</p>
+
+<p class=MsoNormal>    &lt;header&gt;</p>
+
+<p class=MsoNormal>        &lt;h1&gt;Coding Gone Crazy&lt;/h1&gt;</p>
+
+<p class=MsoNormal>    &lt;/header&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    &lt;div class=&quot;project&quot;&gt;</p>
+
+<p class=MsoNormal>        &lt;h2&gt;Milk Stocker &amp; Ordering Assistant&lt;/h2&gt;</p>
+
+<p class=MsoNormal>        &lt;p&gt;Lorem ipsum dolor sit amet, consectetur
+adipiscing elit.&lt;/p&gt;</p>
+
+<p class=MsoNormal>    &lt;/div&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    &lt;div class=&quot;project&quot;&gt;</p>
+
+<p class=MsoNormal>        &lt;h2&gt;Project 2&lt;/h2&gt;</p>
+
+<p class=MsoNormal>        &lt;p&gt;Ut enim ad minim veniam, quis nostrud
+exercitation ullamco.&lt;/p&gt;</p>
+
+<p class=MsoNormal>    &lt;/div&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    &lt;div class=&quot;project&quot;&gt;</p>
+
+<p class=MsoNormal>        &lt;h2&gt;Project 3&lt;/h2&gt;</p>
+
+<p class=MsoNormal>        &lt;p&gt;Duis aute irure dolor in reprehenderit in
+voluptate velit.&lt;/p&gt;</p>
+
+<p class=MsoNormal>    &lt;/div&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&lt;/body&gt;</p>
+
+<p class=MsoNormal>&lt;/html&gt;</p>
+
+</div>
+
+</body>
+
+</html>
