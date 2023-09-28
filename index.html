@@ -44,7 +44,206 @@
     <header>
         <h1>Coding Gone Crazy</h1>
     </header>
- 
+
+
+<body>
+    <div class="title">Milk OrderBot</div>
+</body>
+</html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milk Orderbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .menu-option {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .menu-option:hover {
+            background-color: lightblue;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .popup-content {
+            background-color: white;
+            width: 60%;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        select, input {
+            margin: 10px;
+            padding: 5px;
+            width: 100%;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .download-btn, .clear-btn {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-options">
+        <div class="menu-option" onclick="showPopup('whole')">Whole</div>
+        <div class="menu-option" onclick="showPopup('2%')">2%</div>
+        <div class="menu-option" onclick="showPopup('1%')">1%</div>
+        <div class="menu-option" onclick="showPopup('Skim')">Skim</div>
+        <div class="menu-option" onclick="showPopup('Chocolate')">Chocolate</div>
+    </div>
+
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <h2 id="milkType">Milk Type: </h2>
+            <select id="milkSize">
+                <option value="gallon">Gallon</option>
+                <option value="half-gallon">Half-Gallon</option>
+                <option value="quart">Quart</option>
+                <option value="pint">Pint</option>
+            </select>
+            <input type="number" id="weeklySales" placeholder="Weekly Sales Total">
+            <input type="number" id="availableQuantity" placeholder="Quantity Available" name="Available">
+            <input type="number" id="nextDelivery" placeholder="Days Until Next Delivery" name="Next Delivery">
+            <input type="number" id="nextOrder" placeholder="Days Until Next Order" name="Next Order">
+            <button onclick="saveData()">Save Data</button>
+            <button onclick="calculateOrder()">Calculate Order</button>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+    <table id="milkTable">
+        <tr>
+            <th>Type</th>
+            <th>Size</th>
+            <th>Weekly Sales</th>
+            <th>Available</th>
+            <th>Next Delivery</th>
+            <th>Next Order</th>
+            <th>Avg Daily</th>
+            <th>Suggested Order</th>
+        </tr>
+    </table>
+
+    <a href="#" class="download-btn" id="downloadBtn">Download Table</a>
+    <button class="clear-btn" onclick="clearTable()">Clear Table</button>
+
+    <script>
+        let currentMilkType = "";
+        let database = [];
+
+        function showPopup(milkType) {
+            currentMilkType = milkType;
+            document.getElementById('milkType').textContent = `Milk Type: ${milkType}`;
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        function saveData() {
+            const milkSize = document.getElementById('milkSize').value;
+            const weeklySales = parseInt(document.getElementById('weeklySales').value);
+            const availableQuantity = parseInt(document.getElementById('availableQuantity').value);
+            const nextDelivery = parseInt(document.getElementById('nextDelivery').value);
+            const nextOrder = parseInt(document.getElementById('nextOrder').value);
+
+            const avgDaily = (weeklySales / nextDelivery).toFixed(2);
+
+            database.push({
+                Type: currentMilkType,
+                Size: milkSize,
+                Sales: weeklySales,
+                Available: availableQuantity,
+                'Next Delivery': nextDelivery,
+                'Next Order': nextOrder,
+                'Avg Daily': avgDaily,
+                'Suggested Order': ''
+            });
+
+            updateTable();
+            closePopup();
+        }
+
+        function calculateOrder() {
+            const index = database.findIndex(item => item.Type === currentMilkType && item.Size === document.getElementById('milkSize').value);
+            if (index !== -1) {
+                const avgDaily = database[index]['Avg Daily'];
+                const daysUntilNextOrder = database[index]['Next Order'];
+                const suggestedOrder = (avgDaily * daysUntilNextOrder).toFixed(2);
+                database[index]['Suggested Order'] = suggestedOrder;
+                updateTable();
+            }
+        }
+
+        function updateTable() {
+            const table = document.getElementById('milkTable');
+            table.innerHTML = `<tr><th>Type</th><th>Size</th><th>Weekly Sales</th><th>Available</th><th>Next Delivery</th><th>Next Order</th><th>Avg Daily</th><th>Suggested Order</th></tr>`;
+            database.forEach(item => {
+                table.innerHTML += `
+                    <tr>
+                        <td>${item.Type}</td>
+                        <td>${item.Size}</td>
+                        <td>${item.Sales}</td>
+                        <td>${item.Available}</td>
+                        <td>${item['Next Delivery']}</td>
+                        <td>${item['Next Order']}</td>
+                        <td>${item['Avg Daily']}</td>
+                        <td>${item['Suggested Order']}</td>
+                    </tr>
+                `;
+            });
+
+            const downloadBtn = document.getElementById('downloadBtn');
+            downloadBtn.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(convertToCSV(database));
+            downloadBtn.download = 'milk_stats.csv';
+        }
+
+        function clearTable() {
+            database = [];
+            updateTable();
+        }
+
+        function convertToCSV(data) {
+            const header = Object.keys(data[0]).join(',');
+            const rows = data.map(obj => Object.values(obj).join(','));
+            return header + '\n' + rows.join('\n');
+        }
+    </script>
+</body>
     <div class="project">
         <h2>Milk Stocker & Ordering Assistant</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
